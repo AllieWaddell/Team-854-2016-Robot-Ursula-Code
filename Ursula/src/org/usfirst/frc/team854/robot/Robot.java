@@ -9,6 +9,8 @@ import org.usfirst.frc.team854.robot.commands.ExampleCommand;
 import org.usfirst.frc.team854.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team854.robot.Robot;
+import org.usfirst.frc.team854.robot.subsystems.DriveSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
+	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
@@ -97,6 +100,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        updateDashboard();
     }
     
     /**
@@ -104,5 +109,12 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    private void updateDashboard() {
+    	SmartDashboard.putNumber("Joystick speed", Robot.oi.getSpeed());
+    	SmartDashboard.putNumber("Joystick turn", Robot.oi.getTurn());
+    	
+    	driveSubsystem.updateSmartDashboard();
     }
 }
