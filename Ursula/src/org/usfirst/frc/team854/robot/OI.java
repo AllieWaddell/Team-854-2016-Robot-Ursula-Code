@@ -1,14 +1,30 @@
 package org.usfirst.frc.team854.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 import org.usfirst.frc.team854.robot.commands.ExampleCommand;
+
+//Commands to import for attachment
+import org.usfirst.frc.team854.robot.commands.JoystickCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	//Set-up code for joystick and buttons
 	private Joystick joystick = new Joystick(0);
+	private Button highShootButton = new JoystickButton(joystick, 1),
+			lowShootButton = new JoystickButton(joystick,2),
+			armUpButton = new JoystickButton(joystick,2),
+			armDownButton = new JoystickButton(joystick,3),
+			intakeToggleButton = new JoystickButton(joystick,4);
+	
+	//Attach buttons to their respective commands
+	intakeToggleButton.whenPressed(JoystickCommand());
 	
 	public double getSpeed() {
 		double rawSpeed = - joystick.getRawAxis(1);
