@@ -3,11 +3,11 @@ package org.usfirst.frc.team854.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team854.robot.commands.IntakeCommand;
 
-import org.usfirst.frc.team854.robot.commands.ExampleCommand;
+//Commands to import
 
-//Commands to import for attachment
-import org.usfirst.frc.team854.robot.commands.JoystickCommand;
+im
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,10 +21,10 @@ public class OI {
 			lowShootButton = new JoystickButton(joystick,2),
 			armUpButton = new JoystickButton(joystick,2),
 			armDownButton = new JoystickButton(joystick,3),
-			intakeToggleButton = new JoystickButton(joystick,4);
+			intakeOnButton = new JoystickButton(joystick,4);
 	
 	//Attach buttons to their respective commands
-	intakeToggleButton.whenPressed(JoystickCommand());
+	intakeOnButton.whenReleased(new IntakeCommand());
 	
 	public double getSpeed() {
 		double rawSpeed = - joystick.getRawAxis(1);

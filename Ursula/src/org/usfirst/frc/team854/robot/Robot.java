@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team854.robot.Robot;
 import org.usfirst.frc.team854.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team854.robot.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
@@ -23,6 +24,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class Robot extends IterativeRobot {
 
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
+	public static final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	

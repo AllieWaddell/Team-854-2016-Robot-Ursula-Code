@@ -2,6 +2,9 @@
 package org.usfirst.frc.team854.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import org.usfirst.frc.team854.robot.commands.ShooterWheelsOn;
+
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 
@@ -17,7 +20,7 @@ public class ShooterSubsystem extends Subsystem {
 	private DigitalInput ballOpticalSensor = new DigitalInput(0);
 	
     public void initDefaultCommand() {
-        setDefaultCommand(new shooterSetupCommand());
+        setDefaultCommand(new ShooterWheelsOn());
     }
     
     public void intakeOn() {
